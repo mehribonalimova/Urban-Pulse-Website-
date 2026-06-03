@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details</title>
+
+    <style>
+      body {
+        background: #000;
+        color: #fff;
+        font-family: Poppins;
+        padding: 2rem;
+      }
+      .container {
+        max-width: 900px;
+        margin: auto;
+      }
+      img {
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+      }
+      .back-btn {
+        margin-bottom: 1.5rem;
+        background: #00f5ff;
+        border: none;
+        padding: 0.7rem 1rem;
+        cursor: pointer;
+        font-weight: 700;
+      }
+      .add-btn {
+        margin-top: 1rem;
+        background: linear-gradient(90deg, #ff007f, #00f5ff);
+        border: none;
+        padding: 1rem;
+        width: 100%;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      h1 {
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button class="back-btn" onclick="history.back()">⬅ Back</button>
+
+    <div class="container">
+      <h1 id="title"></h1>
+      <img id="img" />
+
+      <h3>Fabric Materials</h3>
+      <p id="fabric"></p>
+
+      <h3>Available Sizes</h3>
+      <p id="sizes"></p>
+
+      <h3>Reviews</h3>
+      <ul id="reviews"></ul>
+
+      <button class="add-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+
+    <script>
+      // Product database
+      const products = {
+        "Urban Hoodie": {
+          price: 60,
+          img: "https://images.unsplash.com/photo-1600180758890-6f4b6b85c16e?auto=format&fit=crop&w=800&q=80",
+          fabric: "80% Cotton, 20% Polyester fleece — ultra warm.",
+          sizes: "S, M, L, XL, XXL",
+          reviews: [
+            "🔥 Super warm!",
+            "Perfect streetwear fit.",
+            "Great quality!",
+          ],
+        },
+        "Graphic Tee": {
+          price: 35,
+          img: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80",
+          fabric: "100% Premium Cotton — breathable and soft.",
+          sizes: "XS, S, M, L, XL",
+          reviews: ["Clean design!", "Comfortable for daily wear."],
+        },
+        "Street Joggers": {
+          price: 55,
+          img: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=80",
+          fabric: "95% Cotton, 5% Stretch material",
+          sizes: "S, M, L, XL",
+          reviews: ["🔥 Fit perfectly!", "Great mobility and comfort."],
+        },
+        "Urban Cap": {
+          price: 25,
+          img: "https://images.unsplash.com/photo-1612817159949-5b0b9e2d7e6a?auto=format&fit=crop&w=800&q=80",
+          fabric: "100% Twill Cotton",
+          sizes: "One Size Fits All",
+          reviews: ["Clean look!", "Matches every outfit."],
+        },
+      };
+
+      // Get product name from URL
+      const params = new URLSearchParams(window.location.search);
+      const item = params.get("item");
+      const product = products[item];
+
+      // Fill page
+      document.getElementById("title").textContent = item;
+      document.getElementById("img").src = product.img;
+      document.getElementById("fabric").textContent = product.fabric;
+      document.getElementById("sizes").textContent = product.sizes;
+
+      const reviewsList = document.getElementById("reviews");
+      product.reviews.forEach((r) => {
+        const li = document.createElement("li");
+        li.textContent = r;
+        reviewsList.appendChild(li);
+      });
+
+      function addToCart() {
+        alert(`🛒 Added ${item} to cart!`);
+      }
+    </script>
+  </body>
+</html>
