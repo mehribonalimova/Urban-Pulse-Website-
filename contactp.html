@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — Urban Pulse</title>
+
+    <style>
+      body {
+        background: black;
+        color: white;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 40px;
+      }
+
+      h1 {
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #00eaff;
+        text-shadow: 0 0 10px #00eaff;
+      }
+
+      .contact-container {
+        max-width: 900px;
+        margin: auto;
+        line-height: 1.7;
+        font-size: 18px;
+      }
+
+      .highlight {
+        color: #00eaff;
+        font-weight: bold;
+      }
+
+      a.button {
+        display: inline-block;
+        margin-bottom: 30px;
+        padding: 10px 20px;
+        background: #00eaff;
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 10px;
+        transition: 0.3s;
+      }
+
+      a.button:hover {
+        background: #00b8cc;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        border: none;
+        font-size: 16px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background: #00eaff;
+        color: black;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: #00b8cc;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Back Home Button -->
+    <a class="button" href="index.html">← Back Home</a>
+
+    <h1>Contact Us</h1>
+
+    <div class="contact-container">
+      <p>
+        We'd love to hear from you! Whether you have a question, want to give
+        feedback, or just want to say hi, feel free to reach out.
+      </p>
+
+      <form>
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="you@example.com"
+          required
+        />
+
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="6"
+          placeholder="Your message here..."
+          required
+        ></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </body>
+</html>
