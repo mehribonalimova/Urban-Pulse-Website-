@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Urban Pulse - Streetwear</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0a0a;
+        --text-light: #ffffff;
+        --muted: #999;
+        --accent: #ff2cff;
+        --card-bg: #111;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text-light);
+        line-height: 1.6;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* Neon Breadcrumbs Floating Background */
+      .neon-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .breadcrumb {
+        position: absolute;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+        font-weight: bold;
+        opacity: 0;
+        white-space: nowrap;
+        animation: floatUp 20s linear infinite;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(100vh) translateX(0) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          transform: translateY(-20vh) translateX(100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .bc1 {
+        color: #ff2cff;
+        text-shadow: 0 0 20px #ff2cff, 0 0 40px #ff2cff;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .bc2 {
+        color: #00f0ff;
+        text-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff;
+        left: 25%;
+        animation-delay: 3s;
+      }
+      .bc3 {
+        color: #ffff00;
+        text-shadow: 0 0 20px #ffff00, 0 0 40px #ffff00;
+        left: 40%;
+        animation-delay: 6s;
+      }
+      .bc4 {
+        color: #ff6b6b;
+        text-shadow: 0 0 20px #ff6b6b, 0 0 40px #ff6b6b;
+        left: 55%;
+        animation-delay: 9s;
+      }
+      .bc5 {
+        color: #38ef7d;
+        text-shadow: 0 0 20px #38ef7d, 0 0 40px #38ef7d;
+        left: 70%;
+        animation-delay: 12s;
+      }
+      .bc6 {
+        color: #ff2cff;
+        text-shadow: 0 0 20px #ff2cff, 0 0 40px #ff2cff;
+        left: 85%;
+        animation-delay: 15s;
+      }
+      .bc7 {
+        color: #ffa500;
+        text-shadow: 0 0 20px #ffa500, 0 0 40px #ffa500;
+        left: 15%;
+        animation-delay: 18s;
+      }
+      .bc8 {
+        color: #9d00ff;
+        text-shadow: 0 0 20px #9d00ff, 0 0 40px #9d00ff;
+        left: 50%;
+        animation-delay: 4s;
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        animation: particleUp 15s linear infinite;
+      }
+
+      @keyframes particleUp {
+        0% {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.8;
+        }
+        90% {
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(-10vh);
+          opacity: 0;
+        }
+      }
+
+      .p1 {
+        left: 5%;
+        animation-delay: 0s;
+        background: #ff2cff;
+        box-shadow: 0 0 10px #ff2cff;
+      }
+      .p2 {
+        left: 15%;
+        animation-delay: 2s;
+        background: #00f0ff;
+        box-shadow: 0 0 10px #00f0ff;
+      }
+      .p3 {
+        left: 25%;
+        animation-delay: 4s;
+        background: #ff2cff;
+        box-shadow: 0 0 10px #ff2cff;
+      }
+      .p4 {
+        left: 35%;
+        animation-delay: 6s;
+        background: #00f0ff;
+        box-shadow: 0 0 10px #00f0ff;
+      }
+      .p5 {
+        left: 45%;
+        animation-delay: 1s;
+        background: #ff2cff;
+        box-shadow: 0 0 10px #ff2cff;
+      }
+      .p6 {
+        left: 55%;
+        animation-delay: 3s;
+        background: #00f0ff;
+        box-shadow: 0 0 10px #00f0ff;
+      }
+      .p7 {
+        left: 65%;
+        animation-delay: 5s;
+        background: #ff2cff;
+        box-shadow: 0 0 10px #ff2cff;
+      }
+      .p8 {
+        left: 75%;
+        animation-delay: 7s;
+        background: #00f0ff;
+        box-shadow: 0 0 10px #00f0ff;
+      }
+      .p9 {
+        left: 85%;
+        animation-delay: 8s;
+        background: #ff2cff;
+        box-shadow: 0 0 10px #ff2cff;
+      }
+      .p10 {
+        left: 95%;
+        animation-delay: 9s;
+        background: #00f0ff;
+        box-shadow: 0 0 10px #00f0ff;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 1;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid #222;
+        position: relative;
+        z-index: 10;
+        background: rgba(10, 10, 10, 0.9);
+      }
+      .logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+        background: linear-gradient(135deg, #ff2cff, #00f0ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: var(--text-light);
+        text-decoration: none;
+        transition: 0.3s;
+        cursor: pointer;
+      }
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+      .nav-actions {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+      }
+
+      .search-box {
+        display: flex;
+        background: #111;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .search-box input {
+        background: none;
+        border: none;
+        padding: 8px 16px;
+        color: white;
+        outline: none;
+        width: 200px;
+      }
+      .search-btn {
+        background: var(--accent);
+        border: none;
+        padding: 8px 16px;
+        cursor: pointer;
+        color: black;
+        font-weight: 600;
+      }
+      .cart-icon {
+        position: relative;
+        cursor: pointer;
+        font-size: 1.5rem;
+      }
+      .cart-count {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: var(--accent);
+        color: black;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        font-weight: 700;
+      }
+      .btn,
+      .ghost {
+        padding: 12px 32px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: 0.3s;
+        display: inline-block;
+        cursor: pointer;
+      }
+      .btn {
+        background: var(--accent);
+        color: black;
+        border: none;
+      }
+      .btn:hover {
+        background: #ff5cff;
+        transform: translateY(-2px);
+      }
+      .ghost {
+        background: transparent;
+        color: var(--accent);
+        border: 2px solid var(--accent);
+      }
+      .ghost:hover {
+        background: var(--accent);
+        color: black;
+      }
+      .hero {
+        text-align: center;
+        padding: 6rem 1rem;
+        position: relative;
+        z-index: 1;
+      }
+      .hero-main-logo {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.5rem;
+        background: linear-gradient(135deg, #ff2cff, #00f0ff, #ff2cff);
+        background-size: 200% 200%;
+        animation: gradientShift 3s ease infinite;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      @keyframes gradientShift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+      .hero-tag {
+        font-family: "Bebas Neue";
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+      }
+      .hero-h {
+        font-size: 1.3rem;
+        margin: 1rem 0 2rem;
+        color: var(--muted);
+      }
+      .hero-ctas {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .featured h2 {
+        text-align: center;
+        font-size: 2rem;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .gallery {
+        margin-top: 4rem;
+        text-align: center;
+      }
+      .carousel-gallery {
+        position: relative;
+        height: 500px;
+        max-width: 900px;
+        margin: 2rem auto;
+        overflow: hidden;
+        border-radius: 12px;
+      }
+      .slide {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s;
+      }
+      .slide.active {
+        display: flex;
+        opacity: 1;
+        align-items: center;
+        justify-content: center;
+      }
+      .slide-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 3rem;
+        letter-spacing: 3px;
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow: 0 0 30px rgba(255, 44, 255, 0.5);
+      }
+      .slide-placeholder span {
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        color: var(--muted);
+        margin-top: 1rem;
+        letter-spacing: 2px;
+      }
+      .prev,
+      .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.6);
+        border: none;
+        font-size: 34px;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.3s;
+        z-index: 10;
+      }
+      .prev:hover,
+      .next:hover {
+        background: var(--accent);
+        color: black;
+      }
+      .prev {
+        left: 10px;
+      }
+      .next {
+        right: 10px;
+      }
+      .shop-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-top: 3rem;
+      }
+      .shop-header h1 {
+        font-family: "Bebas Neue";
+        font-size: 3rem;
+        letter-spacing: 2px;
+        margin-bottom: 0.5rem;
+      }
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+        margin-bottom: 4rem;
+      }
+      .product-card {
+        background: rgba(17, 17, 17, 0.95);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: 0.3s;
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+      }
+      .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 30px rgba(255, 44, 255, 0.3);
+      }
+      .product-img {
+        width: 100%;
+        height: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .product-info {
+        padding: 1.2rem;
+      }
+      .product-info h3 {
+        margin: 0.5rem 0;
+        font-size: 1.3rem;
+      }
+      .product-info p {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin: 0.5rem 0;
+        line-height: 1.5;
+      }
+      .tag {
+        font-size: 0.8rem;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-light);
+        margin: 1rem 0;
+      }
+      .add-btn {
+        width: 100%;
+        padding: 12px;
+        background: var(--accent);
+        color: black;
+        border: none;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .add-btn:hover {
+        background: #ff5cff;
+        transform: scale(1.02);
+      }
+      .page {
+        display: none;
+      }
+      .page.active {
+        display: block;
+      }
+      .coming-soon {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+      .coming-soon-content {
+        text-align: center;
+        max-width: 600px;
+      }
+      .coming-soon-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 5rem;
+        letter-spacing: 4px;
+        background: linear-gradient(
+          135deg,
+          #ff2cff,
+          #00f0ff,
+          #ff2cff,
+          #ffff00,
+          #ff2cff
+        );
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradientFlow 4s ease infinite;
+        margin-bottom: 1.5rem;
+      }
+      @keyframes gradientFlow {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+      .coming-soon-text {
+        font-size: 1.2rem;
+        color: var(--muted);
+        line-height: 1.8;
+        margin-bottom: 2rem;
+      }
+      .cart-sidebar {
+        position: fixed;
+        top: 0;
+        right: -400px;
+        width: 400px;
+        max-width: 100vw;
+        height: 100vh;
+        background: #0a0a0a;
+        border-left: 1px solid #222;
+        z-index: 100;
+        transition: right 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+      .cart-sidebar.open {
+        right: 0;
+      }
+      .cart-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 99;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s;
+      }
+      .cart-overlay.open {
+        opacity: 1;
+        visibility: visible;
+      }
+      .cart-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        border-bottom: 1px solid #222;
+      }
+      .cart-header h2 {
+        margin: 0;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+      }
+      .close-cart {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 28px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .close-cart:hover {
+        color: var(--accent);
+      }
+      .cart-items {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1rem;
+      }
+      .cart-item {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem;
+        background: #111;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+      }
+      .cart-item-img {
+        width: 80px;
+        height: 80px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .cart-item-details {
+        flex: 1;
+      }
+      .cart-item-details h4 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1rem;
+      }
+      .cart-item-details .item-price {
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .remove-item {
+        background: none;
+        border: none;
+        color: #666;
+        cursor: pointer;
+        font-size: 18px;
+        transition: 0.2s;
+      }
+      .remove-item:hover {
+        color: #ff4444;
+      }
+      .cart-empty {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: var(--muted);
+      }
+      .cart-footer {
+        padding: 1.5rem;
+        border-top: 1px solid #222;
+      }
+      .cart-total {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      .checkout-btn {
+        width: 100%;
+        padding: 14px;
+        background: var(--accent);
+        color: black;
+        border: none;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .checkout-btn:hover {
+        background: #ff5cff;
+      }
+      .notification {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--accent);
+        color: black;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 600;
+        transform: translateY(100px);
+        opacity: 0;
+        transition: 0.3s;
+        z-index: 200;
+      }
+      .notification.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      @media (max-width: 768px) {
+        .hero {
+          padding: 4rem 1rem;
+        }
+        .hero-tag {
+          font-size: 1.6rem;
+        }
+        .carousel-gallery {
+          height: 300px;
+        }
+        .cart-sidebar {
+          width: 100%;
+          right: -100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Neon Floating Background -->
+    <div class="neon-bg">
+      <div class="breadcrumb bc1">URBAN PULSE</div>
+      <div class="breadcrumb bc2">STREET STYLE</div>
+      <div class="breadcrumb bc3">NEON VIBES</div>
+      <div class="breadcrumb bc4">CITY LIGHTS</div>
+      <div class="breadcrumb bc5">FRESH DROPS</div>
+      <div class="breadcrumb bc6">NIGHT MODE</div>
+      <div class="breadcrumb bc7">PULSE WEAR</div>
+      <div class="breadcrumb bc8">BOLD DESIGN</div>
+      <div class="particle p1"></div>
+      <div class="particle p2"></div>
+      <div class="particle p3"></div>
+      <div class="particle p4"></div>
+      <div class="particle p5"></div>
+      <div class="particle p6"></div>
+      <div class="particle p7"></div>
+      <div class="particle p8"></div>
+      <div class="particle p9"></div>
+      <div class="particle p10"></div>
+    </div>
+
+    <nav
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 2rem;
+        background: rgba(10, 10, 10, 0.85);
+        backdrop-filter: blur(8px);
+      "
+    >
+      <!-- Left side: logo + main nav links -->
+      <div style="display: flex; align-items: center; gap: 1rem">
+        <!-- Logo -->
+        <a
+          href="index.html"
+          class="logo"
+          style="display: flex; align-items: center"
+        >
+          <img src="logo.png" alt="Urban Pulse Logo" width="100" height="100" />
+        </a>
+
+        <!-- Main Nav Links -->
+        <ul
+          style="
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            margin: 0;
+            padding: 0;
+          "
+        >
+          <li>
+            <a
+              onclick="showPage('home')"
+              style="
+                padding: 0.5rem 1rem;
+                border: 2px solid #fff;
+                border-radius: 8px;
+                color: #fff;
+                font-weight: 600;
+                text-decoration: none;
+                text-transform: uppercase;
+              "
+              onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='#00f5ff';"
+              onmouseout="this.style.background='transparent'; this.style.borderColor='#fff';"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              onclick="showPage('shop')"
+              style="
+                padding: 0.5rem 1rem;
+                border: 2px solid #fff;
+                border-radius: 8px;
+                color: #fff;
+                font-weight: 600;
+                text-decoration: none;
+                text-transform: uppercase;
+              "
+              onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='#00f5ff';"
+              onmouseout="this.style.background='transparent'; this.style.borderColor='#fff';"
+              >Shop</a
+            >
+          </li>
+          <li>
+            <a
+              href="Return.html"
+              style="
+                padding: 0.5rem 1rem;
+                border: 2px solid #fff;
+                border-radius: 8px;
+                color: #fff;
+                font-weight: 600;
+                text-decoration: none;
+                text-transform: uppercase;
+              "
+              onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='#00f5ff';"
+              onmouseout="this.style.background='transparent'; this.style.borderColor='#fff';"
+              >Returns</a
+            >
+          </li>
+          <li>
+            <a
+              href="contactp.html"
+              style="
+                padding: 0.5rem 1rem;
+                border: 2px solid #fff;
+                border-radius: 8px;
+                color: #fff;
+                font-weight: 600;
+                text-decoration: none;
+                text-transform: uppercase;
+              "
+              onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='#00f5ff';"
+              onmouseout="this.style.background='transparent'; this.style.borderColor='#fff';"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right side: Sign In + search + cart -->
+      <div style="display: flex; align-items: center; gap: 1rem">
+        <!-- Sign In Button -->
+        <a
+          href="sign in.html"
+          style="
+            padding: 0.5rem 1rem;
+            border: 2px solid #ff2cff;
+            border-radius: 8px;
+            color: #ff2cff;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            background: transparent;
+            box-shadow: 0 0 10px #ff2cff, 0 0 20px #ff2cff;
+            transition: 0.2s;
+          "
+          onmouseover="this.style.background='#ff2cff'; this.style.color='#000'; this.style.boxShadow='0 0 20px #ff2cff, 0 0 40px #ff2cff';"
+          onmouseout="this.style.background='transparent'; this.style.color='#ff2cff'; this.style.boxShadow='0 0 10px #ff2cff, 0 0 20px #ff2cff';"
+        >
+          Sign In
+        </a>
+        <!-- Search + Cart -->
+        <div style="display: flex; align-items: center; gap: 1rem">
+          <div
+            style="
+              display: flex;
+              border: 2px solid #fff;
+              border-radius: 8px;
+              overflow: hidden;
+            "
+          >
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search..."
+              style="
+                padding: 0.4rem 0.8rem;
+                border: none;
+                outline: none;
+                background: transparent;
+                color: #fff;
+              "
+            />
+            <button
+              style="
+                padding: 0.4rem 0.8rem;
+                border: none;
+                background: #00f5ff;
+                color: #000;
+                font-weight: 700;
+                cursor: pointer;
+              "
+            >
+              🔍
+            </button>
+          </div>
+          <div
+            class="cart-icon"
+            onclick="toggleCart()"
+            style="position: relative; cursor: pointer; font-size: 1.5rem"
+          >
+            🛒
+            <span
+              class="cart-count"
+              style="
+                position: absolute;
+                top: -8px;
+                right: -8px;
+                background: #ff007f;
+                color: #fff;
+                font-size: 0.7rem;
+                padding: 2px 6px;
+                border-radius: 50%;
+              "
+              >0</span
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div id="home-page" class="page active">
+      <section class="hero">
+        <header>
+          <a href="index.html" class="logo">
+            <img
+              src="logo.png"
+              alt="Urban Pulse Logo"
+              width="250"
+              height="250"
+            />
+          </a>
+        </header>
+        <div class="hero-tag">FEEL THE PULSE. WEAR THE STREET.</div>
+        <h1 class="hero-h">Bold drops. Local collabs. Limited runs.</h1>
+        <div class="hero-ctas">
+          <a href="#" class="btn" onclick="showPage('shop'); return false;"
+            >Shop New Drops</a
+          >
+          <a href="#" class="ghost" onclick="showPage('collabs'); return false;"
+            >Explore Collabs</a
+          >
+        </div>
+      </section>
+
+      <main class="container">
+        <section class="featured">
+          <h2>What We're About</h2>
+          <div
+            style="
+              max-width: 700px;
+              margin: 2rem auto;
+              text-align: center;
+              line-height: 1.8;
+            "
+          >
+            <p class="muted">
+              Urban Pulse is where street culture meets limited-edition style.
+              We collaborate with local artists, drop exclusive collections, and
+              keep our designs bold and unapologetic. Every piece tells a story.
+              Every drop is a moment.
+            </p>
+          </div>
+        </section>
+
+        <div class="carousel-gallery">
+          <div class="slide active">
+            <div
+              class="slide-placeholder"
+              style="
+                background: url('static/18.png') center/cover no-repeat;
+                position: relative;
+                color: #fff;
+                padding: 2rem;
+              "
+            >
+              STREET STYLE<span>Spring Collection 2025</span>
+            </div>
+          </div>
+
+          <div class="slide">
+            <div
+              class="slide-placeholder"
+              style="
+                background: url('static/19.png') center/cover no-repeat;
+                position: relative;
+                color: #fff;
+                padding: 2rem;
+              "
+            >
+              NIGHT VIBES<span>After Dark Series</span>
+            </div>
+          </div>
+
+          <div class="slide">
+            <div
+              class="slide-placeholder"
+              style="
+                background: url('static/20.png') center/cover no-repeat;
+                position: relative;
+                color: #fff;
+                padding: 2rem;
+              "
+            >
+              URBAN EDGE<span>City Lights Drop</span>
+            </div>
+          </div>
+
+          <div class="slide">
+            <div
+              class="slide-placeholder"
+              style="
+                background: url('static/21.png') center/cover no-repeat;
+                position: relative;
+                color: #fff;
+                padding: 2rem;
+              "
+            >
+              NEON DREAMS<span></span>
+            </div>
+          </div>
+
+          <div class="slide">
+            <div
+              class="slide-placeholder"
+              style="
+                background: url('static/22.png') center/cover no-repeat;
+                position: relative;
+                color: #fef;
+                padding: 2rem;
+              "
+            >
+              PULSE COLLAB<span>Artist Series</span>
+            </div>
+          </div>
+
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+      </main>
+    </div>
+    <div id="shop-page" class="page">
+      <main style="padding: 2rem">
+        <div style="text-align: left; max-width: 1200px; margin: auto">
+          <!-- Wrapper to handle rows -->
+          <div
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: flex-start;
+              gap: 1rem;
+            "
+          >
+            <!-- Product 1 -->
+            <div
+              class="product-card"
+              style="
+                flex: 1 1 calc(33% - 1rem);
+                background: #111;
+                border-radius: 12px;
+                padding: 1rem;
+                opacity: 0;
+                transition: opacity 1s;
+              "
+            >
+              <img
+                src="static/1.png"
+                alt="Neon Nights Hoodie"
+                style="width: 100%; height: auto; border-radius: 8px"
+              />
+              <div style="margin-top: 0.5rem; color: #fff">
+                <span style="color: #0ff; font-weight: bold">Limited Drop</span>
+                <h3>Neon Nights Hoodie</h3>
+                <p>
+                  Sleek monochrome hoodie framed by colorful graffiti for a
+                  perfect mix of calm and expressive.
+                </p>
+                <div style="font-weight: bold">$89.99</div>
+                <button
+                  onclick="addToCart('Neon Nights Hoodie', 89.99, 'static/1.png')"
+                  style="
+                    margin-top: 0.5rem;
+                    padding: 0.6rem 1rem;
+                    border: none;
+                    border-radius: 6px;
+                    background: linear-gradient(90deg, #00f5ff, #39ff14);
+                    cursor: pointer;
+                  "
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div
+              class="product-card"
+              style="
+                flex: 1 1 calc(33% - 1rem);
+                background: #111;
+                border-radius: 12px;
+                padding: 1rem;
+                opacity: 0;
+                transition: opacity 1s;
+              "
+            >
+              <img
+                src="static/2.png"
+                alt="Urban Pulse × LOKA SweatSuit"
+                style="width: 100%; height: auto; border-radius: 8px"
+              />
+              <div style="margin-top: 0.5rem; color: #fff">
+                <span style="color: #ff0; font-weight: bold">Collab</span>
+                <h3>Urban Pulse × LOKA SweatSuit</h3>
+                <p>
+                  Minimalist black sweatsuit standing boldly against artistic
+                  graffiti.
+                </p>
+                <div style="font-weight: bold">$54.99</div>
+                <button
+                  onclick="addToCart('Urban Pulse × LOKA Tee', 54.99, 'static/2.png')"
+                  style="
+                    margin-top: 0.5rem;
+                    padding: 0.6rem 1rem;
+                    border: none;
+                    border-radius: 6px;
+                    background: linear-gradient(90deg, #ff007f, #00f5ff);
+                    cursor: pointer;
+                  "
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div
+              class="product-card"
+              style="
+                flex: 1 1 calc(33% - 1rem);
+                background: #111;
+                border-radius: 12px;
+                padding: 1rem;
+                opacity: 0;
+                transition: opacity 1s;
+              "
+            >
+              <img
+                src="static/3.png"
+                alt="Crewneck Tee Pack"
+                style="width: 100%; height: auto; border-radius: 8px"
+              />
+              <div style="margin-top: 0.5rem; color: #fff">
+                <span style="color: #0f0; font-weight: bold">Bestseller</span>
+                <h3>Crewneck Tee Pack</h3>
+                <p>
+                  Vibrant back design bringing energy and artistic flair. Longer
+                  text naturally increases box height.
+                </p>
+                <div style="font-weight: bold">$79.99</div>
+                <button
+                  onclick="addToCart('Essential Tee Pack', 79.99, 'static/3.png')"
+                  style="
+                    margin-top: 0.5rem;
+                    padding: 0.6rem 1rem;
+                    border: none;
+                    border-radius: 6px;
+                    background: linear-gradient(90deg, #ffde00, #ff007f);
+                    cursor: pointer;
+                  "
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div
+              class="product-card"
+              style="
+                flex: 1 1 calc(33% - 1rem);
+                background: #111;
+                border-radius: 12px;
+                padding: 1rem;
+                opacity: 0;
+                transition: opacity 1s;
+              "
+            >
+              <img
+                src="static/4.png"
+                alt="Pulse Graphic Tee"
+                style="width: 100%; height: auto; border-radius: 8px"
+              />
+              <div style="margin-top: 0.5rem; color: #fff">
+                <span style="color: #f0f; font-weight: bold">New Arrival</span>
+                <h3>Pulse Graphic Tee</h3>
+                <p>
+                  Photo-inspired graphic tee with neon backlighting. Clean
+                  design, bold personality.
+                </p>
+                <div style="font-weight: bold">$149.99</div>
+                <button
+                  onclick="addToCart('Pulse Bomber Jacket', 149.99, 'static/4.png')"
+                  style="
+                    margin-top: 0.5rem;
+                    padding: 0.6rem 1rem;
+                    border: none;
+                    border-radius: 6px;
+                    background: linear-gradient(90deg, #00f5ff, #ff007f);
+                    cursor: pointer;
+                  "
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div
+              class="product-card"
+              style="
+                flex: 1 1 calc(33% - 1rem);
+                background: #111;
+                border-radius: 12px;
+                padding: 1rem;
+                opacity: 0;
+                transition: opacity 1s;
+              "
+            >
+              <img
+                src="static/5.png"
+                alt="Street Graphic Tee"
+                style="width: 100%; height: auto; border-radius: 8px"
+              />
+              <div style="margin-top: 0.5rem; color: #fff">
+                <span style="color: #ff0; font-weight: bold">Limited Drop</span>
+                <h3>Street Graphic Tee</h3>
+                <p>
+                  Casual graphic tee worn in front of a bold, expressive mural.
+                  Playful yet dramatic.
+                </p>
+                <div style="font-weight: bold">$94.99</div>
+                <button
+                  onclick="addToCart('Street Vision Cargo', 94.99, 'static/5.png')"
+                  style="
+                    margin-top: 0.5rem;
+                    padding: 0.6rem 1rem;
+                    border: none;
+                    border-radius: 6px;
+                    background: linear-gradient(90deg, #ff007f, #ffde00);
+                    cursor: pointer;
+                  "
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div
+              class="product-card"
+              style="
+                flex: 1 1 calc(33% - 1rem);
+                background: #111;
+                border-radius: 12px;
+                padding: 1rem;
+                opacity: 0;
+                transition: opacity 1s;
+              "
+            >
+              <img
+                src="static/6.png"
+                alt="Reflective Track Set"
+                style="width: 100%; height: auto; border-radius: 8px"
+              />
+              <div style="margin-top: 0.5rem; color: #fff">
+                <span style="color: #0ff; font-weight: bold">Bestseller</span>
+                <h3>Reflective Track Set</h3>
+                <p>
+                  Fitted crop top paired with confident stance against minimal
+                  yet striking graffiti.
+                </p>
+                <div style="font-weight: bold">$129.99</div>
+                <button
+                  onclick="addToCart('Reflective Track Set', 129.99, 'static/6.png')"
+                  style="
+                    margin-top: 0.5rem;
+                    padding: 0.6rem 1rem;
+                    border: none;
+                    border-radius: 6px;
+                    background: linear-gradient(90deg, #39ff14, #00f5ff);
+                    cursor: pointer;
+                  "
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div
+              class="product-card"
+              style="
+                flex: 1 1 calc(33% - 1rem);
+                background: #111;
+                border-radius: 12px;
+                padding: 1rem;
+                opacity: 0;
+                transition: opacity 1s;
+              "
+            >
+              <img
+                src="static/7.png"
+                alt="Graphic Black Tee X Next Luxury"
+                style="width: 100%; height: auto; border-radius: 8px"
+              />
+              <div style="margin-top: 0.5rem; color: #fff">
+                <span style="color: #f0f; font-weight: bold">Collab</span>
+                <h3>Graphic Black Tee X Next Luxury</h3>
+                <p>
+                  Confidence and bold energy amplified by the design. Fierce and
+                  playful.
+                </p>
+                <div style="font-weight: bold">$69.99</div>
+                <button
+                  onclick="addToCart('Graffiti Crew Neck', 69.99, 'static/7.png')"
+                  style="
+                    margin-top: 0.5rem;
+                    padding: 0.6rem 1rem;
+                    border: none;
+                    border-radius: 6px;
+                    background: linear-gradient(90deg, #ff007f, #39ff14);
+                    cursor: pointer;
+                  "
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div
+              class="product-card"
+              style="
+                flex: 1 1 calc(33% - 1rem);
+                background: #111;
+                border-radius: 12px;
+                padding: 1rem;
+                opacity: 0;
+                transition: opacity 1s;
+              "
+            >
+              <img
+                src="static/8.png"
+                alt="Street Sweatpants"
+                style="width: 100%; height: auto; border-radius: 8px"
+              />
+              <div style="margin-top: 0.5rem; color: #fff">
+                <span style="color: #ff0; font-weight: bold">Limited Drop</span>
+                <h3>Street Sweatpants</h3>
+                <p>
+                  Soft-toned sweatpants blending pastel pink and white with
+                  casual ease. Light and playful.
+                </p>
+                <div style="font-weight: bold">$94.99</div>
+                <button
+                  onclick="addToCart('Street Vision Cargo', 94.99, 'static/8.png')"
+                  style="
+                    margin-top: 0.5rem;
+                    padding: 0.6rem 1rem;
+                    border: none;
+                    border-radius: 6px;
+                    background: linear-gradient(90deg, #00f5ff, #ffde00);
+                    cursor: pointer;
+                  "
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 9 -->
+            <div
+              class="product-card"
+              style="
+                flex: 1 1 calc(33% - 1rem);
+                background: #111;
+                border-radius: 12px;
+                padding: 1rem;
+                opacity: 0;
+                transition: opacity 1s;
+              "
+            >
+              <img
+                src="static/9.png"
+                alt="Sweatpants"
+                style="width: 100%; height: auto; border-radius: 8px"
+              />
+              <div style="margin-top: 0.5rem; color: #fff">
+                <span style="color: #0ff; font-weight: bold">Limited Drop</span>
+                <h3>Sweatpants</h3>
+                <p>
+                  Baggy sweatpants worn by a composed, self-assured model.
+                  Relaxed posture, stylish look.
+                </p>
+                <div style="font-weight: bold">$94.99</div>
+                <button
+                  onclick="addToCart('Street Vision Cargo', 94.99, 'static/9.png')"
+                  style="
+                    margin-top: 0.5rem;
+                    padding: 0.6rem 1rem;
+                    border: none;
+                    border-radius: 6px;
+                    background: linear-gradient(90deg, #39ff14, #ff007f);
+                    cursor: pointer;
+                  "
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 10 -->
+            <div
+              class="product-card"
+              style="
+                flex: 1 1 calc(33% - 1rem);
+                background: #111;
+                border-radius: 12px;
+                padding: 1rem;
+                opacity: 0;
+                transition: opacity 1s;
+              "
+            >
+              <img
+                src="static/10.png"
+                alt="Urban Tech Vest"
+                style="width: 100%; height: auto; border-radius: 8px"
+              />
+              <div style="margin-top: 0.5rem; color: #fff">
+                <span style="color: #f0f; font-weight: bold">New Arrival</span>
+                <h3>Urban Tech Vest</h3>
+                <p>
+                  Relaxed sweatpants set against a simple background.
+                  Effortless, understated.
+                </p>
+                <div style="font-weight: bold">$84.99</div>
+                <button
+                  onclick="addToCart('Urban Tech Vest', 84.99, 'static/10.png')"
+                  style="
+                    margin-top: 0.5rem;
+                    padding: 0.6rem 1rem;
+                    border: none;
+                    border-radius: 6px;
+                    background: linear-gradient(90deg, #ff007f, #ffde00);
+                    cursor: pointer;
+                  "
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <!-- Product 11 -->
+            <div
+              class="product-card"
+              style="
+                flex: 1 1 calc(33% - 1rem);
+                background: #111;
+                border-radius: 12px;
+                padding: 1rem;
+                opacity: 0;
+                transition: opacity 1s;
+              "
+            >
+              <img
+                src="static/11.png"
+                alt="Camo Patchwork Beanie"
+                style="width: 100%; height: auto; border-radius: 8px"
+              />
+              <div style="margin-top: 0.5rem; color: #fff">
+                <span style="color: #0ff; font-weight: bold">New Arrival</span>
+                <h3>Camo Patchwork Beanie</h3>
+                <p>
+                  A rugged camo beanie accented with a stitched mini figure for
+                  a playful street-style twist. Soft, warm, and designed for
+                  everyday wear.
+                </p>
+                <div style="font-weight: bold">$39.99</div>
+                <button
+                  onclick="addToCart('Camo Patchwork Beanie', 39.99, 'static/11.png')"
+                  style="
+                    margin-top: 0.5rem;
+                    padding: 0.6rem 1rem;
+                    border: none;
+                    border-radius: 6px;
+                    background: linear-gradient(90deg, #00f5ff, #39ff14);
+                    cursor: pointer;
+                  "
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 12 -->
+            <div
+              class="product-card"
+              style="
+                flex: 1 1 calc(33% - 1rem);
+                background: #111;
+                border-radius: 12px;
+                padding: 1rem;
+                opacity: 0;
+                transition: opacity 1s;
+              "
+            >
+              <img
+                src="static/12.png"
+                alt="Gem Bloom Yankees Cap"
+                style="width: 100%; height: auto; border-radius: 8px"
+              />
+              <div style="margin-top: 0.5rem; color: #fff">
+                <span style="color: #ff0; font-weight: bold">Limited Drop</span>
+                <h3>Gem Bloom Yankees Cap</h3>
+                <p>
+                  Classic Yankees silhouette elevated with gem-studded floral
+                  accents. A sharp blend of sports heritage and bold urban
+                  expression.
+                </p>
+                <div style="font-weight: bold">$59.99</div>
+                <button
+                  onclick="addToCart('Gem Bloom Yankees Cap', 59.99, 'static/12.png')"
+                  style="
+                    margin-top: 0.5rem;
+                    padding: 0.6rem 1rem;
+                    border: none;
+                    border-radius: 6px;
+                    background: linear-gradient(90deg, #ff007f, #00f5ff);
+                    cursor: pointer;
+                  "
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 13 -->
+            <div
+              class="product-card"
+              style="
+                flex: 1 1 calc(33% - 1rem);
+                background: #111;
+                border-radius: 12px;
+                padding: 1rem;
+                opacity: 0;
+                transition: opacity 1s;
+              "
+            >
+              <img
+                src="static/13.png"
+                alt="Iced Micro-Link Chain"
+                style="width: 100%; height: auto; border-radius: 8px"
+              />
+              <div style="margin-top: 0.5rem; color: #fff">
+                <span style="color: #0f0; font-weight: bold">Bestseller</span>
+                <h3>Iced Micro-Link Chain</h3>
+                <p>
+                  A sleek silver chain lined with micro-diamonds for a refined
+                  shimmer. Minimal, clean, and designed to catch the light from
+                  every angle.
+                </p>
+                <div style="font-weight: bold">$129.99</div>
+                <button
+                  onclick="addToCart('Iced Micro-Link Chain', 129.99, 'static/13.png')"
+                  style="
+                    margin-top: 0.5rem;
+                    padding: 0.6rem 1rem;
+                    border: none;
+                    border-radius: 6px;
+                    background: linear-gradient(90deg, #ffde00, #ff007f);
+                    cursor: pointer;
+                  "
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <!-- Product 14 -->
+            <div
+              class="product-card"
+              style="
+                flex: 1 1 calc(33% - 1rem);
+                background: #111;
+                border-radius: 12px;
+                padding: 1rem;
+                opacity: 0;
+                transition: opacity 1s;
+              "
+            >
+              <img
+                src="static/14.png"
+                alt="Blossom Segmented Gold Bracelet"
+                style="width: 100%; height: auto; border-radius: 8px"
+              />
+              <div style="margin-top: 0.5rem; color: #fff">
+                <span style="color: #f0f; font-weight: bold">New Arrival</span>
+                <h3>Blossom Segmented Gold Bracelet</h3>
+                <p>
+                  Delicate gold bracelet broken into floral-inspired segments.
+                  Elegant detailing meets modern simplicity for an elevated
+                  finish.
+                </p>
+                <div style="font-weight: bold">$74.99</div>
+                <button
+                  onclick="addToCart('Blossom Segmented Gold Bracelet', 74.99, 'static/14.png')"
+                  style="
+                    margin-top: 0.5rem;
+                    padding: 0.6rem 1rem;
+                    border: none;
+                    border-radius: 6px;
+                    background: linear-gradient(90deg, #00f5ff, #ff007f);
+                    cursor: pointer;
+                  "
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 15 -->
+            <div
+              class="product-card"
+              style="
+                flex: 1 1 calc(33% - 1rem);
+                background: #111;
+                border-radius: 12px;
+                padding: 1rem;
+                opacity: 0;
+                transition: opacity 1s;
+              "
+            >
+              <img
+                src="static/31.png"
+                alt="Urban Mesh Tote Bag"
+                style="width: 100%; height: auto; border-radius: 8px"
+              />
+              <div style="margin-top: 0.5rem; color: #fff">
+                <span style="color: #ff0; font-weight: bold">Collab</span>
+                <h3>Urban Mesh Tote Bag</h3>
+                <p>
+                  Lightweight mesh tote featuring bold “The Tote Bag”
+                  typography. Functional, breathable, and made for on-the-go
+                  city movement.
+                </p>
+                <div style="font-weight: bold">$44.99</div>
+                <button
+                  onclick="addToCart('Urban Mesh Tote Bag', 44.99, 'static/31.png')"
+                  style="
+                    margin-top: 0.5rem;
+                    padding: 0.6rem 1rem;
+                    border: none;
+                    border-radius: 6px;
+                    background: linear-gradient(90deg, #39ff14, #00f5ff);
+                    cursor: pointer;
+                  "
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- end flex wrapper -->
+        </div>
+      </main>
+
+      <script>
+        function fadeInOnScroll() {
+          const products = document.querySelectorAll(".product-card");
+          const windowBottom = window.innerHeight + window.scrollY;
+          products.forEach((product) => {
+            if (product.offsetTop < windowBottom - 50)
+              product.style.opacity = 1;
+          });
+        }
+        window.addEventListener("scroll", fadeInOnScroll);
+        window.addEventListener("load", fadeInOnScroll);
+      </script>
+    </div>
+    <div id="collabs-page" class="page">
+      <div class="coming-soon">
+        <div class="coming-soon-content">
+          <h1 class="coming-soon-title">Coming Soon...</h1>
+          <p class="coming-soon-text">
+            We're cooking up something special. Stay tuned for exclusive
+            collaborations with local artists and designers.
+          </p>
+          <a href="#" class="btn" onclick="showPage('home'); return false;"
+            >Back to Home</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar">
+      <div class="cart-header">
+        <h2>YOUR CART</h2>
+        <button class="close-cart" onclick="toggleCart()">×</button>
+      </div>
+      <div class="cart-items" id="cart-items">
+        <div class="cart-empty">Your cart is empty</div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total:</span>
+          <span id="cart-total">$0.00</span>
+        </div>
+        <button class="checkout-btn" onclick="checkout()">
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+
+    <div class="notification" id="notification"></div>
+
+    <script>
+      function showPage(pageName) {
+        document
+          .querySelectorAll(".page")
+          .forEach((page) => page.classList.remove("active"));
+        document.getElementById(pageName + "-page").classList.add("active");
+        window.scrollTo(0, 0);
+      }
+
+      let cart = [];
+
+      function addToCart(name, price, gradient) {
+        const existing = cart.find((item) => item.name === name);
+        if (existing) {
+          existing.quantity++;
+        } else {
+          cart.push({ name, price, gradient, quantity: 1 });
+        }
+        updateCartUI();
+        showNotification(name + " added to cart!");
+      }
+
+      function removeFromCart(index) {
+        cart.splice(index, 1);
+        updateCartUI();
+      }
+
+      function updateCartUI() {
+        const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        document.querySelector(".cart-count").textContent = cartCount;
+        const cartItemsEl = document.getElementById("cart-items");
+        const cartTotalEl = document.getElementById("cart-total");
+        if (cart.length === 0) {
+          cartItemsEl.innerHTML =
+            '<div class="cart-empty">Your cart is empty</div>';
+          cartTotalEl.textContent = "$0.00";
+        } else {
+          let html = "";
+          let total = 0;
+          cart.forEach((item, index) => {
+            total += item.price * item.quantity;
+            html += `<div class="cart-item"><div class="cart-item-img" style="background: ${
+              item.gradient
+            };">${
+              item.name.split(" ")[0]
+            }</div><div class="cart-item-details"><h4>${
+              item.name
+            }</h4><div class="item-price">$${item.price.toFixed(2)} × ${
+              item.quantity
+            }</div></div><button class="remove-item" onclick="removeFromCart(${index})">✕</button></div>`;
+          });
+          cartItemsEl.innerHTML = html;
+          cartTotalEl.textContent = "$" + total.toFixed(2);
+        }
+      }
+
+      function toggleCart() {
+        document.querySelector(".cart-sidebar").classList.toggle("open");
+        document.querySelector(".cart-overlay").classList.toggle("open");
+      }
+
+      function checkout() {
+        if (cart.length === 0) {
+          showNotification("Your cart is empty!");
+          return;
+        }
+        showNotification("Checkout feature coming soon!");
+      }
+
+      function showNotification(message) {
+        const notification = document.getElementById("notification");
+        notification.textContent = message;
+        notification.classList.add("show");
+        setTimeout(() => notification.classList.remove("show"), 3000);
+      }
+
+      // Search function
+      function searchProducts() {
+        const query = document
+          .getElementById("search-input")
+          .value.toLowerCase();
+        if (query) {
+          showPage("shop");
+          showNotification("Showing results for: " + query);
+        }
+      }
+
+      // Carousel
+      const slides = document.querySelectorAll(".carousel-gallery .slide");
+      let current = 0;
+      function showSlide(i) {
+        slides.forEach((s) => s.classList.remove("active"));
+        current = (i + slides.length) % slides.length;
+        slides[current].classList.add("active");
+      }
+      document.querySelector(".next").onclick = () => showSlide(current + 1);
+      document.querySelector(".prev").onclick = () => showSlide(current - 1);
+      setInterval(() => showSlide(current + 1), 4000);
+
+      // Allow Enter key to search
+      document
+        .getElementById("search-input")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") searchProducts();
+        });
+    </script>
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p>
+          <span style="font-weight: bold; color: #00eaff"
+            >Urban Pulse Streetwear</span
+          >
+        </p>
+        <p>789 Street Style Ave, Fashion District, USA 10001</p>
+        <p>
+          Email:
+          <a
+            href="mailto:info@urbanpulse.com"
+            style="color: #00eaff; text-decoration: none"
+            >info@urbanpulse.com</a
+          >
+        </p>
+        <p>
+          <a
+            href="#"
+            onclick="showPage('home'); return false;"
+            style="color: #00eaff; text-decoration: none"
+            >Home</a
+          >
+
+          |
+          <a href="contactp.html" style="color: #00eaff; text-decoration: none"
+            >Contact</a
+          >
+        </p>
+        <p>&copy; 2025 Urban Pulse Streetwear. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <style>
+      footer {
+        background: #111;
+        color: #00eaff;
+        text-align: center;
+        padding: 20px 10px;
+        font-size: 16px;
+        box-shadow: 0 -2px 10px #00eaff33;
+        position: relative;
+        z-index: 1;
+      }
+
+      footer a:hover {
+        color: #00b8cc;
+      }
+
+      .footer-content p {
+        margin: 5px 0;
+      }
+    </style>
+    <div
+      id="chatbot-icon"
+      onclick="window.open('https://poe.com/UPCoyoteBot', '_blank')"
+      style="
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #7b5fff, #ff3ecf);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #fff;
+        font-size: 30px;
+        z-index: 10000;
+        box-shadow: 0 0 15px #7b5fff80, 0 0 25px #ff3ecf80;
+        transition: transform 0.2s, box-shadow 0.2s;
+      "
+      onmouseover="this.style.transform='scale(1.2)'; this.style.boxShadow='0 0 25px #7b5fff, 0 0 40px #ff3ecf'; document.getElementById('chatbot-tooltip').style.display='flex';"
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 15px #7b5fff80, 0 0 25px #ff3ecf80'; document.getElementById('chatbot-tooltip').style.display='none';"
+    >
+      💬
+    </div>
+
+    <!-- Tooltip + Image -->
+    <div
+      id="chatbot-tooltip"
+      style="
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.85);
+        color: #fff;
+        padding: 10px;
+        border-radius: 12px;
+        font-size: 14px;
+        display: none;
+        z-index: 10000;
+        box-shadow: 0 0 15px #7b5fff80, 0 0 25px #ff3ecf80;
+        align-items: center;
+        gap: 10px;
+      "
+    >
+      <!-- Chatbot Image -->
+      <img
+        src="coyote.png"
+        alt="UPCoyoteBot"
+        width="150"
+        height="150"
+        style="border-radius: 12px"
+      />
+
+      <!-- Tooltip Text -->
+      <span>Chat with UPCoyoteBot</span>
+    </div>
+  </body>
+</html>
