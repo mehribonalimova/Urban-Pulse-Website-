@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In - Urban Pulse</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0a0a;
+        --text-light: #ffffff;
+        --muted: #999;
+        --accent: #ff2cff;
+        --card-bg: #111;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text-light);
+        line-height: 1.6;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* Neon Breadcrumbs Floating Background */
+      .neon-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .breadcrumb {
+        position: absolute;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+        font-weight: bold;
+        opacity: 0;
+        white-space: nowrap;
+        animation: floatUp 20s linear infinite;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(100vh) translateX(0) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          transform: translateY(-20vh) translateX(100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .bc1 {
+        color: #ff2cff;
+        text-shadow: 0 0 20px #ff2cff, 0 0 40px #ff2cff;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .bc2 {
+        color: #00f0ff;
+        text-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff;
+        left: 25%;
+        animation-delay: 3s;
+      }
+      .bc3 {
+        color: #ffff00;
+        text-shadow: 0 0 20px #ffff00, 0 0 40px #ffff00;
+        left: 40%;
+        animation-delay: 6s;
+      }
+      .bc4 {
+        color: #ff6b6b;
+        text-shadow: 0 0 20px #ff6b6b, 0 0 40px #ff6b6b;
+        left: 55%;
+        animation-delay: 9s;
+      }
+      .bc5 {
+        color: #38ef7d;
+        text-shadow: 0 0 20px #38ef7d, 0 0 40px #38ef7d;
+        left: 70%;
+        animation-delay: 12s;
+      }
+      .bc6 {
+        color: #ff2cff;
+        text-shadow: 0 0 20px #ff2cff, 0 0 40px #ff2cff;
+        left: 85%;
+        animation-delay: 15s;
+      }
+      .bc7 {
+        color: #ffa500;
+        text-shadow: 0 0 20px #ffa500, 0 0 40px #ffa500;
+        left: 15%;
+        animation-delay: 18s;
+      }
+      .bc8 {
+        color: #9d00ff;
+        text-shadow: 0 0 20px #9d00ff, 0 0 40px #9d00ff;
+        left: 50%;
+        animation-delay: 4s;
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        animation: particleUp 15s linear infinite;
+      }
+
+      @keyframes particleUp {
+        0% {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.8;
+        }
+        90% {
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(-10vh);
+          opacity: 0;
+        }
+      }
+
+      .p1 {
+        left: 5%;
+        animation-delay: 0s;
+        background: #ff2cff;
+        box-shadow: 0 0 10px #ff2cff;
+      }
+      .p2 {
+        left: 15%;
+        animation-delay: 2s;
+        background: #00f0ff;
+        box-shadow: 0 0 10px #00f0ff;
+      }
+      .p3 {
+        left: 25%;
+        animation-delay: 4s;
+        background: #ff2cff;
+        box-shadow: 0 0 10px #ff2cff;
+      }
+      .p4 {
+        left: 35%;
+        animation-delay: 6s;
+        background: #00f0ff;
+        box-shadow: 0 0 10px #00f0ff;
+      }
+      .p5 {
+        left: 45%;
+        animation-delay: 1s;
+        background: #ff2cff;
+        box-shadow: 0 0 10px #ff2cff;
+      }
+      .p6 {
+        left: 55%;
+        animation-delay: 3s;
+        background: #00f0ff;
+        box-shadow: 0 0 10px #00f0ff;
+      }
+      .p7 {
+        left: 65%;
+        animation-delay: 5s;
+        background: #ff2cff;
+        box-shadow: 0 0 10px #ff2cff;
+      }
+      .p8 {
+        left: 75%;
+        animation-delay: 7s;
+        background: #00f0ff;
+        box-shadow: 0 0 10px #00f0ff;
+      }
+      .p9 {
+        left: 85%;
+        animation-delay: 8s;
+        background: #ff2cff;
+        box-shadow: 0 0 10px #ff2cff;
+      }
+      .p10 {
+        left: 95%;
+        animation-delay: 9s;
+        background: #00f0ff;
+        box-shadow: 0 0 10px #00f0ff;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid #222;
+        position: relative;
+        z-index: 10;
+        background: rgba(10, 10, 10, 0.9);
+      }
+      .logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+        background: linear-gradient(135deg, #ff2cff, #00f0ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        cursor: pointer;
+      }
+      .signin-page {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        position: relative;
+        z-index: 1;
+      }
+      .signin-container {
+        background: rgba(17, 17, 17, 0.95);
+        border-radius: 12px;
+        padding: 3rem;
+        max-width: 450px;
+        width: 100%;
+        border: 1px solid #222;
+        backdrop-filter: blur(10px);
+      }
+      .signin-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .signin-header h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+        background: linear-gradient(135deg, #ff2cff, #00f0ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+      }
+      .signin-header p {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--text-light);
+      }
+      .form-group input {
+        width: 100%;
+        padding: 12px 16px;
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px solid #333;
+        border-radius: 6px;
+        color: var(--text-light);
+        font-size: 1rem;
+        transition: 0.3s;
+      }
+      .form-group input:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 10px rgba(255, 44, 255, 0.3);
+      }
+      .forgot-password {
+        text-align: right;
+        margin-bottom: 1.5rem;
+      }
+      .forgot-password a {
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: 0.3s;
+      }
+      .forgot-password a:hover {
+        color: #ff5cff;
+      }
+      .signin-btn {
+        width: 100%;
+        padding: 14px;
+        background: var(--accent);
+        color: black;
+        border: none;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.2s;
+        margin-bottom: 1rem;
+      }
+      .signin-btn:hover {
+        background: #ff5cff;
+        transform: translateY(-2px);
+      }
+      .divider {
+        text-align: center;
+        margin: 1.5rem 0;
+        color: var(--muted);
+        position: relative;
+      }
+      .divider::before,
+      .divider::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 40%;
+        height: 1px;
+        background: #333;
+      }
+      .divider::before {
+        left: 0;
+      }
+      .divider::after {
+        right: 0;
+      }
+      .social-signin {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .social-btn {
+        width: 100%;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid #333;
+        border-radius: 6px;
+        color: var(--text-light);
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .social-btn:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: var(--accent);
+      }
+      .signup-link {
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .signup-link a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+      .signup-link a:hover {
+        color: #ff5cff;
+      }
+      .back-home {
+        text-align: center;
+        margin-top: 1.5rem;
+      }
+      .back-home a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: 0.3s;
+      }
+      .back-home a:hover {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Neon Floating Background -->
+    <div class="neon-bg">
+      <div class="breadcrumb bc1">URBAN PULSE</div>
+      <div class="breadcrumb bc2">STREET STYLE</div>
+      <div class="breadcrumb bc3">NEON VIBES</div>
+      <div class="breadcrumb bc4">CITY LIGHTS</div>
+      <div class="breadcrumb bc5">FRESH DROPS</div>
+      <div class="breadcrumb bc6">NIGHT MODE</div>
+      <div class="breadcrumb bc7">PULSE WEAR</div>
+      <div class="breadcrumb bc8">BOLD DESIGN</div>
+      <div class="particle p1"></div>
+      <div class="particle p2"></div>
+      <div class="particle p3"></div>
+      <div class="particle p4"></div>
+      <div class="particle p5"></div>
+      <div class="particlep6"></div>
+      <div class="particle p7"></div>
+      <div class="particle p8"></div>
+      <div class="particle p9"></div>
+      <div class="particle p10"></div>
+    </div>
+    <nav>
+      <div style="display: flex; align-items: center; gap: 1rem">
+        <!-- Logo -->
+        <a
+          href="index.html"
+          class="logo"
+          style="display: flex; align-items: center"
+        >
+          <img src="logo.png" alt="Urban Pulse Logo" width="100" height="100" />
+        </a>
+    </nav>
+
+    <div class="signin-page">
+      <div class="signin-container">
+        <div class="signin-header">
+          <h1>SIGN IN</h1>
+          <p>Welcome back to the pulse</p>
+        </div>
+
+        <form id="signin-form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="your@email.com"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+
+          <div class="forgot-password">
+            <a href="#">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="signin-btn">Sign In</button>
+        </form>
+
+        <div class="divider">OR</div>
+
+        <div class="social-signin">
+          <button class="social-btn" onclick="socialSignIn('google')">
+            <span></span> Continue with Google
+          </button>
+          <button class="social-btn" onclick="socialSignIn('apple')">
+            <span></span> Continue with Apple
+          </button>
+        </div>
+
+        <div class="signup-link">
+          Don't have an account? <a href="signup.html">Sign up</a>
+        </div>
+
+        <div class="back-home">
+          <a href="index.html">← Back to Home</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("signin-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          // Simulate sign in
+          if (email && password) {
+            alert(`Welcome back! Signing in as ${email}`);
+            // In a real app, this would authenticate with a backend
+            window.location.href = "index.html";
+          }
+        });
+
+      function socialSignIn(provider) {
+        alert(`Signing in with ${provider}...`);
+        // In a real app, this would authenticate with the social provider
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>
