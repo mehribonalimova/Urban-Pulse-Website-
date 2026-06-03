@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Access Denied - Urban Pulse</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0a0a;
+        --text-light: #ffffff;
+        --muted: #999;
+        --accent: #ff2cff;
+        --card-bg: #111;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+      .error-page {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+      .error-content {
+        text-align: center;
+        max-width: 500px;
+      }
+      .error-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 4rem;
+        letter-spacing: 4px;
+        color: #ff4444;
+        margin-bottom: 1rem;
+      }
+      .error-text {
+        font-size: 1.2rem;
+        color: var(--muted);
+        margin-bottom: 2rem;
+      }
+      .btn {
+        padding: 12px 26px;
+        border: 2px solid var(--accent);
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        background: var(--accent);
+        color: black;
+        display: inline-block;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .btn:hover {
+        background: #ff5cff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="error-page">
+      <div class="error-content">
+        <h1 class="error-title">ACCESS DENIED</h1>
+        <p class="error-text">
+          Sorry, there was an error with authentication. Please try again.
+        </p>
+        <a href="index.html" class="btn">Back to Home</a>
+      </div>
+    </div>
+  </body>
+</html>
