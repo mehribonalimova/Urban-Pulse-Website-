@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Returns & Orders - Urban Pulse</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0a0a;
+        --text-light: #ffffff;
+        --muted: #999;
+        --accent: #ff2cff;
+        --card-bg: #111;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text-light);
+        line-height: 1.6;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* Neon Breadcrumbs Floating Background */
+      .neon-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .breadcrumb {
+        position: absolute;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+        font-weight: bold;
+        opacity: 0;
+        white-space: nowrap;
+        animation: floatUp 20s linear infinite;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(100vh) translateX(0) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          transform: translateY(-20vh) translateX(100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .bc1 {
+        color: #ff2cff;
+        text-shadow: 0 0 20px #ff2cff, 0 0 40px #ff2cff;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .bc2 {
+        color: #00f0ff;
+        text-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff;
+        left: 25%;
+        animation-delay: 3s;
+      }
+      .bc3 {
+        color: #ffff00;
+        text-shadow: 0 0 20px #ffff00, 0 0 40px #ffff00;
+        left: 40%;
+        animation-delay: 6s;
+      }
+      .bc4 {
+        color: #ff6b6b;
+        text-shadow: 0 0 20px #ff6b6b, 0 0 40px #ff6b6b;
+        left: 55%;
+        animation-delay: 9s;
+      }
+      .bc5 {
+        color: #38ef7d;
+        text-shadow: 0 0 20px #38ef7d, 0 0 40px #38ef7d;
+        left: 70%;
+        animation-delay: 12s;
+      }
+      .bc6 {
+        color: #ff2cff;
+        text-shadow: 0 0 20px #ff2cff, 0 0 40px #ff2cff;
+        left: 85%;
+        animation-delay: 15s;
+      }
+      .bc7 {
+        color: #ffa500;
+        text-shadow: 0 0 20px #ffa500, 0 0 40px #ffa500;
+        left: 15%;
+        animation-delay: 18s;
+      }
+      .bc8 {
+        color: #9d00ff;
+        text-shadow: 0 0 20px #9d00ff, 0 0 40px #9d00ff;
+        left: 50%;
+        animation-delay: 4s;
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        animation: particleUp 15s linear infinite;
+      }
+
+      @keyframes particleUp {
+        0% {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.8;
+        }
+        90% {
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(-10vh);
+          opacity: 0;
+        }
+      }
+
+      .p1 {
+        left: 5%;
+        animation-delay: 0s;
+        background: #ff2cff;
+        box-shadow: 0 0 10px #ff2cff;
+      }
+      .p2 {
+        left: 15%;
+        animation-delay: 2s;
+        background: #00f0ff;
+        box-shadow: 0 0 10px #00f0ff;
+      }
+      .p3 {
+        left: 25%;
+        animation-delay: 4s;
+        background: #ff2cff;
+        box-shadow: 0 0 10px #ff2cff;
+      }
+      .p4 {
+        left: 35%;
+        animation-delay: 6s;
+        background: #00f0ff;
+        box-shadow: 0 0 10px #00f0ff;
+      }
+      .p5 {
+        left: 45%;
+        animation-delay: 1s;
+        background: #ff2cff;
+        box-shadow: 0 0 10px #ff2cff;
+      }
+      .p6 {
+        left: 55%;
+        animation-delay: 3s;
+        background: #00f0ff;
+        box-shadow: 0 0 10px #00f0ff;
+      }
+      .p7 {
+        left: 65%;
+        animation-delay: 5s;
+        background: #ff2cff;
+        box-shadow: 0 0 10px #ff2cff;
+      }
+      .p8 {
+        left: 75%;
+        animation-delay: 7s;
+        background: #00f0ff;
+        box-shadow: 0 0 10px #00f0ff;
+      }
+      .p9 {
+        left: 85%;
+        animation-delay: 8s;
+        background: #ff2cff;
+        box-shadow: 0 0 10px #ff2cff;
+      }
+      .p10 {
+        left: 95%;
+        animation-delay: 9s;
+        background: #00f0ff;
+        box-shadow: 0 0 10px #00f0ff;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 1;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid #222;
+        position: relative;
+        z-index: 10;
+        background: rgba(10, 10, 10, 0.9);
+      }
+      .logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+        background: linear-gradient(135deg, #ff2cff, #00f0ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        cursor: pointer;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .returns-page {
+        min-height: 80vh;
+        padding: 3rem 0;
+        position: relative;
+        z-index: 1;
+      }
+      .returns-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .returns-header h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 3rem;
+        letter-spacing: 3px;
+        background: linear-gradient(135deg, #ff2cff, #00f0ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+      }
+      .returns-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .return-policy {
+        background: rgba(17, 17, 17, 0.95);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border: 1px solid #222;
+        backdrop-filter: blur(10px);
+      }
+      .return-policy h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+        color: var(--accent);
+      }
+      .return-policy p {
+        color: var(--muted);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+      .return-policy ul {
+        color: var(--muted);
+        line-height: 2;
+        padding-left: 1.5rem;
+      }
+      .orders-section h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+      .order-card {
+        background: rgba(17, 17, 17, 0.95);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid #222;
+        backdrop-filter: blur(10px);
+      }
+      .order-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+      .order-id {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+      }
+      .order-date {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .order-items {
+        color: var(--muted);
+        margin-bottom: 1rem;
+      }
+      .return-btn {
+        padding: 10px 20px;
+        background: transparent;
+        border: 2px solid var(--accent);
+        color: var(--accent);
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .return-btn:hover {
+        background: var(--accent);
+        color: black;
+      }
+      .no-orders {
+        text-align: center;
+        padding: 3rem 2rem;
+        color: var(--muted);
+        background: rgba(17, 17, 17, 0.95);
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+      }
+      .no-orders h3 {
+        color: white;
+        margin-bottom: 0.5rem;
+      }
+      .btn {
+        padding: 12px 26px;
+        border: 2px solid var(--accent);
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        background: var(--accent);
+        color: black;
+        display: inline-block;
+        margin-top: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .btn:hover {
+        background: #ff5cff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Neon Floating Background -->
+    <div class="neon-bg">
+      <div class="breadcrumb bc1">URBAN PULSE</div>
+      <div class="breadcrumb bc2">STREET STYLE</div>
+      <div class="breadcrumb bc3">NEON VIBES</div>
+      <div class="breadcrumb bc4">CITY LIGHTS</div>
+      <div class="breadcrumb bc5">FRESH DROPS</div>
+      <div class="breadcrumb bc6">NIGHT MODE</div>
+      <div class="breadcrumb bc7">PULSE WEAR</div>
+      <div class="breadcrumb bc8">BOLD DESIGN</div>
+      <div class="particle p1"></div>
+      <div class="particle p2"></div>
+      <div class="particle p3"></div>
+      <div class="particle p4"></div>
+      <div class="particle p5"></div>
+      <div class="particle p6"></div>
+      <div class="particle p7"></div>
+      <div class="particle p8"></div>
+      <div class="particle p9"></div>
+      <div class="particle p10"></div>
+    </div>
+
+    <nav>
+      <div style="display: flex; align-items: center; gap: 1rem">
+        <!-- Logo -->
+        <a
+          href="index.html"
+          class="logo"
+          style="display: flex; align-items: center"
+        >
+          <img src="logo.png" alt="Urban Pulse Logo" width="100" height="100" />
+        </a>
+    </nav>
+
+    <div class="returns-page">
+      <div class="container">
+        <div class="returns-header">
+          <h1>RETURNS & ORDERS</h1>
+          <p class="muted">Manage your returns and view order history</p>
+          <a href="index.html" class="btn" style="margin-top: 1.5rem"
+            >Back to Home</a
+          >
+        </div>
+
+        <div class="returns-content">
+          <div class="return-policy">
+            <h2>Return Policy</h2>
+            <p>
+              We want you to love your Urban Pulse gear. If something isn't
+              right, we've got you covered.
+            </p>
+            <ul>
+              <li>30-day return window from delivery date</li>
+              <li>Items must be unworn with original tags</li>
+              <li>Free returns on all domestic orders</li>
+              <li>Refunds processed within 5-7 business days</li>
+              <li>Exchanges available for different sizes</li>
+            </ul>
+          </div>
+
+          <div class="orders-section">
+            <h2>Your Recent Orders</h2>
+            <div id="orders-container">
+              <!-- Orders will be dynamically loaded here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Sample order data - in a real app, this would come from a backend
+      const sampleOrders = [
+        {
+          id: "UP-2024-001",
+          items: [
+            { name: "Neon Nights Hoodie", quantity: 1, price: 89.99 },
+            { name: "Urban Pulse × LOKA Tee", quantity: 2, price: 54.99 },
+          ],
+          total: 199.97,
+          created_at: new Date("2024-11-20T14:30:00"),
+        },
+        {
+          id: "UP-2024-002",
+          items: [{ name: "Pulse Bomber Jacket", quantity: 1, price: 149.99 }],
+          total: 149.99,
+          created_at: new Date("2024-11-25T09:15:00"),
+        },
+        {
+          id: "UP-2024-003",
+          items: [
+            { name: "Essential Tee Pack", quantity: 1, price: 79.99 },
+            { name: "Street Vision Cargo", quantity: 1, price: 94.99 },
+          ],
+          total: 174.98,
+          created_at: new Date("2024-11-27T11:45:00"),
+        },
+      ];
+
+      function formatDate(date) {
+        const options = {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        };
+        return date.toLocaleDateString("en-US", options);
+      }
+
+      function requestReturn(orderId) {
+        alert(
+          `Return request submitted for Order #${orderId}. Our team will contact you within 24 hours.`
+        );
+      }
+
+      function renderOrders() {
+        const ordersContainer = document.getElementById("orders-container");
+        const orders = sampleOrders;
+
+        if (orders.length === 0) {
+          ordersContainer.innerHTML = `
+          <div class="no-orders">
+            <h3>No Orders Yet</h3>
+            <p>Once you place an order, you'll be able to manage returns here.</p>
+          </div>
+        `;
+          return;
+        }
+
+        let ordersHTML = "";
+        const recentOrders = orders.slice(0, 5);
+
+        recentOrders.forEach((order) => {
+          ordersHTML += `
+          <div class="order-card">
+            <div class="order-header">
+              <span class="order-id">ORDER #${order.id}</span>
+              <span class="order-date">${formatDate(order.created_at)}</span>
+            </div>
+            <div class="order-items">
+              ${order.items.length} item(s) - $${order.total.toFixed(2)}
+            </div>
+            <button class="return-btn" onclick="requestReturn('${
+              order.id
+            }')">Request Return</button>
+          </div>
+        `;
+        });
+
+        ordersContainer.innerHTML = ordersHTML;
+      }
+
+      renderOrders();
+    </script>
+  </body>
+</html>
