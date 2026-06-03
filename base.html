@@ -1,1 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Urban Pulse — Streetwear</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg-dark: #000;
+        --text-light: #fff;
+        --muted: #aaaaaa;
+        --accent: #ff2cff;
+        --card-bg: #111;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background: var(--bg-dark);
+        color: var(--text-light);
+        overflow-x: hidden;
+      }
+      #neon-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+      }
+      .up-header {
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(8px);
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid #222;
+      }
+      .up-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.7rem 1.2rem;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .up-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .menu-btn {
+        font-size: 26px;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+      }
+      .up-logo {
+        height: 44px;
+        display: flex;
+        align-items: center;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+        background: linear-gradient(135deg, var(--accent), #00f0ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-decoration: none;
+      }
+      .up-search {
+        display: flex;
+        flex: 1;
+        max-width: 450px;
+        margin: 0 20px;
+      }
+      .up-search input {
+        flex: 1;
+        padding: 8px 12px;
+        border-radius: 4px 0 0 4px;
+        border: none;
+        background: #1b1b1b;
+        color: white;
+        outline: none;
+      }
+      .up-search input::placeholder { color: #666; }
+      .search-btn {
+        padding: 8px 12px;
+        background: var(--accent);
+        color: black;
+        font-weight: bold;
+        border: none;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .search-btn:hover { background: #ff5cff; }
+      .up-right {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        font-size: 0.85rem;
+      }
+      .up-small {
+        text-align: right;
+        line-height: 1.2;
+      }
+      .up-small a {
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .up-small a:hover { color: var(--accent); }
+      .muted { color: var(--muted); }
+      .up-cart {
+        font-size: 24px;
+        position: relative;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .up-cart:hover { transform: scale(1.1); }
+      .cart-count {
+        position: absolute;
+        top: -6px;
+        right: -8px;
+        font-size: 12px;
+        background: var(--accent);
+        color: black;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-weight: bold;
+      }
+      .container {
+        width: min(1200px, 92%);
+        margin: auto;
+      }
+      .btn, .ghost {
+        padding: 12px 26px;
+        border: 2px solid var(--accent);
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        display: inline-block;
+        transition: 0.3s;
+      }
+      .btn {
+        background: var(--accent);
+        color: black;
+      }
+      .btn:hover {
+        background: #ff5cff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(255, 44, 255, 0.4);
+      }
+      .ghost {
+        color: var(--accent);
+        background: transparent;
+      }
+      .ghost:hover {
+        background: var(--accent);
+        color: black;
+      }
+      footer {
+        margin-top: 4rem;
+        padding: 2rem 0;
+        background: rgba(0, 0, 0, 0.4);
+        border-top: 1px solid #333;
+      }
+      .footer-flex {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+      .footer-brand {
+        font-size: 1.4rem;
+        font-weight: 700;
+        font-family: "Bebas Neue", sans-serif;
+        letter-spacing: 2px;
+      }
+      .social-links a {
+        display: block;
+        cursor: pointer;
+        color: var(--muted);
+        margin-top: 4px;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+      .social-links a:hover { color: var(--accent); }
+      .user-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--accent);
+      }
+      @media (max-width: 768px) {
+        .up-nav { flex-direction: column; gap: 10px; }
+        .up-search { order: 3; max-width: 100%; margin: 0; width: 100%; }
+        .up-right { gap: 10px; }
+        .up-small { display: none; }
+      }
+    </style>
+    {% block extra_styles %}{% endblock %}
+</head>
+<body>
+    <canvas id="neon-bg"></canvas>
+    
+    <header class="up-header">
+      <div class="up-nav">
+        <div class="up-left">
+          <button class="menu-btn" aria-label="Open Menu">☰</button>
+          <a href="/" class="up-logo">URBAN PULSE</a>
+        </div>
+        <div class="up-search">
+          <input type="text" placeholder="Search Urban Pulse" id="search-input" />
+          <button class="search-btn">🔍</button>
+        </div>
+        <div class="up-right">
+          {% if user and user.is_authenticated %}
+            <div class="up-small">
+              <span class="muted">Hello, {{ user.first_name or 'there' }}</span><br />
+              <a href="/auth/logout"><strong>Sign Out</strong></a>
+            </div>
+          {% else %}
+            <div class="up-small">
+              <span class="muted">Hello, sign in</span><br />
+              <a href="/auth/login"><strong>Account & Lists</strong></a>
+            </div>
+          {% endif %}
+          <div class="up-small">
+            <a href="/returns"><span class="muted">Returns</span><br /><strong>& Orders</strong></a>
+          </div>
+          <div class="up-cart" onclick="toggleCart()">🛒<span class="cart-count">0</span></div>
+        </div>
+      </div>
+    </header>
 
+    {% block content %}{% endblock %}
+
+    <footer>
+      <div class="container footer-flex">
+        <div>
+          <div class="footer-brand">URBAN PULSE</div>
+          <div class="muted">789 Street Style Ave, Fashion District, USA</div>
+        </div>
+        <div class="muted">
+          <div>Follow</div>
+          <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const canvas = document.getElementById("neon-bg");
+      const ctx = canvas.getContext("2d");
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      class Particle {
+        constructor() { this.reset(); }
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 4 + 2;
+          this.speedX = (Math.random() - 0.5) * 0.3;
+          this.speedY = (Math.random() - 0.5) * 0.3;
+          this.hue = Math.random() * 360;
+          this.color = `hsl(${this.hue}, 100%, 60%)`;
+          this.twinkle = Math.random() * 0.02 + 0.01;
+          this.alpha = Math.random() * 0.5 + 0.5;
+          this.alphaDir = 1;
+        }
+        draw() {
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = this.color;
+          ctx.fillStyle = this.color.replace('60%)', `60%, ${this.alpha})`).replace('hsl', 'hsla');
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          this.alpha += this.twinkle * this.alphaDir;
+          if (this.alpha >= 1 || this.alpha <= 0.3) this.alphaDir *= -1;
+          if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+          this.draw();
+        }
+      }
+      const particles = Array.from({ length: 150 }, () => new Particle());
+      function animate() {
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => p.update());
+        requestAnimationFrame(animate);
+      }
+      animate();
+    </script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>
